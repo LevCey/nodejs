@@ -1,16 +1,19 @@
 const express = require("express");
 const app = express();
 
+app.set("view engine", "ejs");
+
+// routes
 app.use("/products/:id", function(req, res){
-    res.send("product details " + req.params.id );
+    res.render("urun-details");
 });
 
 app.use("/products", function(req, res){
-    res.send("products");
+    res.render("urunler");
 });
 
 app.use("/", function(req, res){
-    res.send("anasayfa");
+    res.render("index");
 });
 
 
